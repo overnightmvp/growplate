@@ -4,65 +4,110 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-NextMerce is a Next.js eCommerce template built with React 19, TypeScript, and Tailwind CSS. This is the free/community version that provides a static eCommerce template with Redux state management for cart, wishlist, and product interactions.
+NextMerce is a Next.js eCommerce template built with React 19, TypeScript, and Tailwind CSS. This codebase includes both the free template structure and Prisma database integration for full eCommerce functionality.
 
 ## Build Commands
 
 - `npm run dev` - Start development server
-- `npm run build` - Build for production
+- `npm run build` - Build for production  
 - `npm start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run postinstall` - Generate Prisma client (runs automatically after npm install)
+- `npm run db:migrate` - Run Prisma database migrations
+- `npm run db:generate` - Generate Prisma client manually
+- `npm run db:seed` - Seed database with initial data
 
 ## Architecture
 
 ### Tech Stack
 - **Framework**: Next.js 15.2.3 with App Router
-- **UI**: React 19 with TypeScript
-- **Styling**: Tailwind CSS with custom design system
-- **State Management**: Redux Toolkit (@reduxjs/toolkit)
+- **UI**: React 19 with TypeScript (strict: false in tsconfig)
+- **Styling**: Tailwind CSS with extensive custom design system
+- **State Management**: Redux Toolkit with feature-based slices
+- **Database**: Prisma ORM with PostgreSQL (configured for Vercel)
 - **Additional**: Swiper for carousels, react-hot-toast for notifications
 
 ### Directory Structure
-- `src/app/` - Next.js App Router pages and layouts
-  - `(site)/` - Main site group with nested page routes
-  - `context/` - React context providers for modals and UI state
+- `src/app/` - Next.js App Router with route groups
+  - `(site)/(pages)/` - Main site pages (cart, checkout, shop, auth, etc.)
+  - `blogs/` - Blog-related pages with sidebar variations
+  - `context/` - React Context providers for modal state management
+  - `css/` - Global styles and custom font definitions
 - `src/components/` - Feature-based component organization
-  - Each major feature has its own directory (Auth, Cart, Shop, etc.)
-  - `Common/` contains shared components like modals and UI elements
-- `src/redux/` - Redux store configuration and feature slices
-  - `features/` - Individual Redux slices for cart, wishlist, quickview, product details
+  - Each feature has its own directory (Auth/, Cart/, Shop/, Blog/, etc.)
+  - `Common/` - Shared components (modals, ProductItem, PreLoader, etc.)
+- `src/redux/` - Redux store and feature slices
+  - `features/` - Individual slices (cart-slice, wishlist-slice, quickView-slice, product-details)
+  - `provider.tsx` - Redux provider wrapper
   - `store.ts` - Store configuration with typed hooks
 - `src/types/` - TypeScript type definitions
-- `public/images/` - Static assets organized by feature (products, blog, icons, etc.)
+- `src/lib/` - Utility libraries (Prisma client)
+- `prisma/` - Database schema, migrations, and seed data
+- `public/images/` - Static assets organized by feature
+
+### Database Schema (Prisma)
+
+**Key Models:**
+- `User` - User management with relations to orders, cart, wishlist, addresses
+- `Product` - Products with categories, images, and inventory tracking
+- `Category` - Product categorization
+- `ProductImage` - Multiple images per product (thumbnail, preview, gallery)
+- `CartItem` - Shopping cart items with user/product relations
+- `WishlistItem` - User wishlist functionality
+- `Order` - Order management with status tracking and address relations
+- `OrderItem` - Individual items within orders
+- `Address` - User addresses for billing and shipping
 
 ### Key Architecture Patterns
 
-**State Management**: 
-- Redux Toolkit with feature-based slices (cart-slice.ts, wishlist-slice.ts, quickView-slice.ts, product-details.ts)
-- Typed hooks exported from store.ts (useAppSelector)
-- React Context for modal states (CartSidebarModalContext, QuickViewModalContext, PreviewSliderContext)
+**State Management Hybrid Approach:**
+- Redux Toolkit for cart/wishlist/product interactions (client-side state)
+- Prisma for persistent data (users, orders, products from database)
+- React Context for modal states and UI interactions
+- Static data files for demo content (shopData.ts, categoryData.ts)
 
-**Styling System**:
-- Custom Tailwind config with extensive color palette and spacing scale
-- Euclid Circular A as primary font family
-- Dark mode support with 'class' strategy
-- Custom component sizing and typography scales
+**Database Configuration:**
+- PostgreSQL with connection pooling for Vercel deployment
+- Environment variables: POSTGRES_PRISMA_URL, POSTGRES_URL_NON_POOLING
+- Automatic client generation via postinstall hook
 
-**Component Structure**:
-- Feature-based organization (Auth/, Cart/, Shop/, etc.)
-- Reusable UI components in Common/
-- Data files co-located with components (shopData.ts, categoryData.ts, etc.)
+**Styling System:**
+- Extensive Tailwind customization with 60+ custom spacing values
+- Custom color palette with semantic naming (body, meta, dark variants)
+- Euclid Circular A font family loaded via CSS
+- Dark mode support with class-based strategy
+- Custom box shadows and z-index scales
 
-### Data Flow
-- Product data is managed through Redux slices
-- Modal states use React Context
-- Static data (categories, testimonials) stored in co-located data files
-- No external database integration (this is the free template version)
+**Component Architecture:**
+- Feature-based organization over atomic design
+- Co-located data files with components
+- Reusable modal system using React Context
+- Redux selectors with memoization (createSelector)
+
+### Data Flow Patterns
+
+**Client-Side State (Redux):**
+- Cart operations (add, remove, update quantities)
+- Wishlist management
+- Quick view modal state
+- Product detail interactions
+
+**Server-Side Data (Prisma):**
+- User authentication and profiles
+- Order processing and history
+- Product catalog and inventory
+- Address management
+
+**Static Demo Data:**
+- Product showcases (shopData.ts)
+- Categories and testimonials
+- Blog content for demonstration
 
 ## Development Notes
 
-- Uses App Router with route groups for organization
-- Components follow feature-based structure rather than atomic design
-- Heavy use of Tailwind's custom spacing and color system
-- Redux state is primarily for user interactions (cart, wishlist) rather than data fetching
-- Static product data suggests this template is designed for demonstration/starter purposes
+- TypeScript strict mode disabled for easier development
+- Uses App Router with route groups for logical organization
+- Database-first approach with Prisma schema as source of truth
+- Hybrid state management: Redux for UI state, Prisma for persistent data
+- Custom Tailwind configuration requires understanding of design system tokens
+- Modal system relies on React Context providers in layout hierarchy

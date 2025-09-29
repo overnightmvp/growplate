@@ -1,5 +1,3 @@
-"use client";
-import { useState, useEffect } from "react";
 import type { Metadata } from 'next'
 import "./css/euclid-circular-a-font.css";
 import "./css/style.css";
@@ -15,44 +13,31 @@ import { PreviewSliderProvider } from "./context/PreviewSliderContext";
 import PreviewSliderModal from "@/components/Common/PreviewSlider";
 
 import ScrollToTop from "@/components/Common/ScrollToTop";
-import PreLoader from "@/components/Common/PreLoader";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body>
-        {loading ? (
-          <PreLoader />
-        ) : (
-          <>
-            <ReduxProvider>
-              <CartModalProvider>
-                <ModalProvider>
-                  <PreviewSliderProvider>
-                    <Header />
-                    {children}
-                    <Footer />
+      <body suppressHydrationWarning={true}>
+        <ReduxProvider>
+          <CartModalProvider>
+            <ModalProvider>
+              <PreviewSliderProvider>
+                <Header />
+                {children}
+                <Footer />
 
-                    <QuickViewModal />
-                    <CartSidebarModal />
-                    <PreviewSliderModal />
-                  </PreviewSliderProvider>
-                </ModalProvider>
-              </CartModalProvider>
-            </ReduxProvider>
-            <ScrollToTop />
-          </>
-        )}
+                <QuickViewModal />
+                <CartSidebarModal />
+                <PreviewSliderModal />
+              </PreviewSliderProvider>
+            </ModalProvider>
+          </CartModalProvider>
+        </ReduxProvider>
+        <ScrollToTop />
       </body>
     </html>
   );
