@@ -7,6 +7,7 @@ const CounDown = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   const deadline = "December, 31, 2024";
 
@@ -20,11 +21,14 @@ const CounDown = () => {
   };
 
   useEffect(() => {
-    // @ts-ignore
-    const interval = setInterval(() => getTime(deadline), 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+    setMounted(true);
+    
+    if (mounted) {
+      getTime();
+      const interval = setInterval(getTime, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [mounted]);
 
   return (
     <section className="overflow-hidden py-20">
@@ -54,7 +58,7 @@ const CounDown = () => {
                   x-text="days"
                 >
                   {" "}
-                  {days < 10 ? "0" + days : days}{" "}
+                  {mounted ? (days < 10 ? "0" + days : days) : "00"}{" "}
                 </span>
                 <span className="block text-custom-sm text-dark text-center">
                   Days
@@ -68,7 +72,7 @@ const CounDown = () => {
                   x-text="hours"
                 >
                   {" "}
-                  {hours < 10 ? "0" + hours : hours}{" "}
+                  {mounted ? (hours < 10 ? "0" + hours : hours) : "00"}{" "}
                 </span>
                 <span className="block text-custom-sm text-dark text-center">
                   Hours
@@ -81,7 +85,7 @@ const CounDown = () => {
                   className="min-w-[64px] h-14.5 font-semibold text-xl lg:text-3xl text-dark rounded-lg flex items-center justify-center bg-white shadow-2 px-4 mb-2"
                   x-text="minutes"
                 >
-                  {minutes < 10 ? "0" + minutes : minutes}{" "}
+                  {mounted ? (minutes < 10 ? "0" + minutes : minutes) : "00"}{" "}
                 </span>
                 <span className="block text-custom-sm text-dark text-center">
                   Minutes
@@ -94,7 +98,7 @@ const CounDown = () => {
                   className="min-w-[64px] h-14.5 font-semibold text-xl lg:text-3xl text-dark rounded-lg flex items-center justify-center bg-white shadow-2 px-4 mb-2"
                   x-text="seconds"
                 >
-                  {seconds < 10 ? "0" + seconds : seconds}{" "}
+                  {mounted ? (seconds < 10 ? "0" + seconds : seconds) : "00"}{" "}
                 </span>
                 <span className="block text-custom-sm text-dark text-center">
                   Seconds

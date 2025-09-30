@@ -19,7 +19,6 @@ const QuickViewModal = () => {
 
   // get the product data
   const product = useAppSelector((state) => state.quickViewReducer.value);
-
   const [activePreview, setActivePreview] = useState(0);
 
   // preview modal
@@ -43,8 +42,9 @@ const QuickViewModal = () => {
 
   useEffect(() => {
     // closing modal while clicking outside
-    function handleClickOutside(event) {
-      if (!event.target.closest(".modal-content")) {
+    function handleClickOutside(event: MouseEvent) {
+      const target = event.target as HTMLElement;
+      if (!target.closest(".modal-content")) {
         closeModal();
       }
     }
@@ -59,6 +59,11 @@ const QuickViewModal = () => {
       setQuantity(1);
     };
   }, [isModalOpen, closeModal]);
+
+  // Guard against invalid product data
+  if (!product || !product.id) {
+    return null;
+  }
 
   return (
     <div
@@ -94,7 +99,7 @@ const QuickViewModal = () => {
             <div className="max-w-[526px] w-full">
               <div className="flex gap-5">
                 <div className="flex flex-col gap-5">
-                  {product.imgs.thumbnails?.map((img, key) => (
+                  {product?.imgs?.thumbnails?.map((img, key) => (
                     <button
                       onClick={() => setActivePreview(key)}
                       key={key}
@@ -102,15 +107,21 @@ const QuickViewModal = () => {
                         activePreview === key && "border-2 border-blue"
                       }`}
                     >
-                      <Image
-                        src={img || ""}
-                        alt="thumbnail"
-                        width={61}
-                        height={61}
-                        className="aspect-square"
-                      />
+                      {img ? (
+                        <Image
+                          src={img}
+                          alt="thumbnail"
+                          width={61}
+                          height={61}
+                          className="aspect-square"
+                        />
+                      ) : (
+                        <div className="flex items-center justify-center w-full h-full">
+                          <span className="text-xs text-gray-5">No image</span>
+                        </div>
+                      )}
                     </button>
-                  ))}
+                  )) || []}
                 </div>
 
                 <div className="relative z-1 overflow-hidden flex items-center justify-center w-full sm:min-h-[508px] bg-gray-1 rounded-lg border border-gray-3">
@@ -137,12 +148,18 @@ const QuickViewModal = () => {
                       </svg>
                     </button>
 
-                    <Image
-                      src={product?.imgs?.previews?.[activePreview]}
-                      alt="products-details"
-                      width={400}
-                      height={400}
-                    />
+                    {product?.imgs?.previews?.[activePreview] ? (
+                      <Image
+                        src={product.imgs.previews[activePreview]}
+                        alt="products-details"
+                        width={400}
+                        height={400}
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center w-[400px] h-[400px] bg-gray-1 rounded-lg">
+                        <span className="text-gray-5">No image available</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
