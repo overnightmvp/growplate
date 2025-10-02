@@ -1,5 +1,6 @@
 import React from "react";
 import ShopWithSidebar from "@/components/ShopWithSidebar";
+import 'react-range-slider-input/dist/style.css';
 
 import { Metadata } from "next";
 export const metadata: Metadata = {
