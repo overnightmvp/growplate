@@ -8,4 +8,9 @@ export type Product = {
     thumbnails: string[];
     previews: string[];
   };
+  // Indian restaurant specific fields
+  category?: string;
+  spiceLevel?: string;
+  description?: string;
+  prepTime?: string;
 };
