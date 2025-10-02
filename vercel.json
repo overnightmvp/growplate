@@ -8,9 +8,6 @@
       "maxDuration": 30
     }
   },
-  "env": {
-    "NEXT_PUBLIC_VERCEL_URL": "@vercel-url"
-  },
   "build": {
     "env": {
       "PRISMA_GENERATE_DATAPROXY": "true"
