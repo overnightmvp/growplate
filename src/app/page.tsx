@@ -6,8 +6,9 @@ import Home from "@/components/Home";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "NextCommerce | Nextjs E-commerce template",
-  description: "This is Home for NextCommerce Template",
+  title: "Bombay Delights | Authentic Indian Food Court - Southern Cross Melbourne",
+  description: "Order fresh Indian takeaway online. Curry, biryani, naan & more. Located at Stall 23, Southern Cross Food Court. Ready in 8-12 minutes. Lunch specials available.",
+  keywords: "Indian food, curry, biryani, naan, Melbourne food court, takeaway, Southern Cross Station, authentic Indian cuisine",
 };
 
 export default function RootPage() {

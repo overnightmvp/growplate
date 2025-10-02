@@ -39,59 +39,56 @@ const SingleItem = ({ item }: { item: Product }) => {
     );
   };
 
+  const getSpiceIndicator = (spiceLevel: string) => {
+    switch(spiceLevel) {
+      case 'Hot': return <span className="text-red-500">🌶️🌶️🌶️</span>;
+      case 'Medium': return <span className="text-orange-500">🌶️🌶️</span>;
+      case 'Mild': return <span className="text-yellow-500">🌶️</span>;
+      default: return <span className="text-gray-400">⚪</span>;
+    }
+  };
+
   return (
     <div className="group">
-      <div className="relative overflow-hidden rounded-lg bg-[#F6F7FB] min-h-[403px]">
-        <div className="text-center px-4 py-7.5">
-          <div className="flex items-center justify-center gap-2.5 mb-2">
-            <div className="flex items-center gap-1">
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
-            </div>
-
-            <p className="text-custom-sm">({item.reviews})</p>
+      <div className="relative overflow-hidden rounded-lg bg-[#FFF8F0] border border-orange-100 min-h-[350px] shadow-sm hover:shadow-lg transition-all duration-200">
+        {/* Food image placeholder - using emoji for now */}
+        <div className="flex justify-center items-center py-8 bg-gradient-to-b from-orange-50 to-white">
+          <div className="w-32 h-32 bg-orange-100 rounded-full flex items-center justify-center text-6xl">
+            🍛
           </div>
-
-          <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
-            <Link href="/shop-details"> {item.title} </Link>
-          </h3>
-
-          <span className="flex items-center justify-center gap-2 font-medium text-lg">
-            <span className="text-dark">${item.discountedPrice}</span>
-            <span className="text-dark-4 line-through">${item.price}</span>
-          </span>
         </div>
 
-        <div className="flex justify-center items-center">
-          <Image src={item.imgs.previews[0]} alt="" width={280} height={280} />
+        <div className="text-center px-4 py-4">
+          {/* Spice level and category */}
+          <div className="flex items-center justify-center gap-3 mb-2">
+            {(item as any).spiceLevel && getSpiceIndicator((item as any).spiceLevel)}
+            <span className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full">
+              {(item as any).category || 'curry'}
+            </span>
+          </div>
+
+          <h3 className="font-medium text-dark ease-out duration-200 hover:text-orange-600 mb-2 text-sm">
+            <Link href={`/menu-item/${item.id}`}> {item.title} </Link>
+          </h3>
+
+          {/* Reviews and prep time */}
+          <div className="flex items-center justify-center gap-2 text-xs text-gray-600 mb-2">
+            <span>⭐ 4.5 ({item.reviews} reviews)</span>
+            {(item as any).prepTime && (
+              <>
+                <span>•</span>
+                <span>⏱️ {(item as any).prepTime}</span>
+              </>
+            )}
+          </div>
+
+          {/* Price */}
+          <div className="flex items-center justify-center gap-2 font-medium">
+            <span className="text-orange-600 text-lg">${item.discountedPrice}</span>
+            {item.price !== item.discountedPrice && (
+              <span className="text-gray-400 line-through text-sm">${item.price}</span>
+            )}
+          </div>
         </div>
 
         <div className="absolute right-0 bottom-0 translate-x-full u-w-full flex flex-col gap-2 p-5.5 ease-linear duration-300 group-hover:translate-x-0">

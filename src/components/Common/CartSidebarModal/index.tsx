@@ -11,12 +11,26 @@ import { useSelector } from "react-redux";
 import SingleItem from "./SingleItem";
 import Link from "next/link";
 import EmptyCart from "./EmptyCart";
+import CartAddOns from "../CartAddOns";
 
 const CartSidebarModal = () => {
   const { isCartModalOpen, closeCartModal } = useCartModalContext();
   const cartItems = useAppSelector((state) => state.cartReducer.items);
-
   const totalPrice = useSelector(selectTotalPrice);
+  
+  const [addOnsTotal, setAddOnsTotal] = useState(0);
+  const [addOnSelections, setAddOnSelections] = useState({
+    drink: null,
+    side: null,
+    extra: null
+  });
+
+  const handleAddOnsChange = (selections: any, total: number) => {
+    setAddOnSelections(selections);
+    setAddOnsTotal(total);
+  };
+
+  const finalTotal = totalPrice + addOnsTotal;
 
   useEffect(() => {
     // closing modal while clicking outside
@@ -76,7 +90,7 @@ const CartSidebarModal = () => {
 
           <div className="h-[66vh] overflow-y-auto no-scrollbar">
             <div className="flex flex-col gap-6">
-              {/* <!-- cart item --> */}
+              {/* Cart items */}
               {cartItems.length > 0 ? (
                 cartItems.map((item, key) => (
                   <SingleItem
@@ -88,14 +102,31 @@ const CartSidebarModal = () => {
               ) : (
                 <EmptyCart />
               )}
+              
+              {/* Permanent Add-ons Section - Always visible */}
+              <CartAddOns onAddOnsChange={handleAddOnsChange} />
             </div>
           </div>
 
           <div className="border-t border-gray-3 bg-white pt-5 pb-4 sm:pb-7.5 lg:pb-11 mt-7.5 sticky bottom-0">
-            <div className="flex items-center justify-between gap-5 mb-6">
-              <p className="font-medium text-xl text-dark">Subtotal:</p>
-
-              <p className="font-medium text-xl text-dark">${totalPrice}</p>
+            {/* Order Summary */}
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center justify-between">
+                <p className="text-dark-4">Food Items:</p>
+                <p className="text-dark-4">${totalPrice.toFixed(2)}</p>
+              </div>
+              
+              {addOnsTotal > 0 && (
+                <div className="flex items-center justify-between">
+                  <p className="text-dark-4">Add-ons:</p>
+                  <p className="text-dark-4">${addOnsTotal.toFixed(2)}</p>
+                </div>
+              )}
+              
+              <div className="flex items-center justify-between border-t border-gray-3 pt-2">
+                <p className="font-medium text-xl text-dark">Total:</p>
+                <p className="font-medium text-xl text-dark">${finalTotal.toFixed(2)}</p>
+              </div>
             </div>
 
             <div className="flex items-center gap-4">
@@ -104,14 +135,14 @@ const CartSidebarModal = () => {
                 href="/cart"
                 className="w-full flex justify-center font-medium text-white bg-blue py-[13px] px-6 rounded-md ease-out duration-200 hover:bg-blue-dark"
               >
-                View Cart
+                View Order
               </Link>
 
               <Link
                 href="/checkout"
                 className="w-full flex justify-center font-medium text-white bg-dark py-[13px] px-6 rounded-md ease-out duration-200 hover:bg-opacity-95"
               >
-                Checkout
+                Order Now
               </Link>
             </div>
           </div>
