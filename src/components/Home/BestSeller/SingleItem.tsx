@@ -61,9 +61,9 @@ const SingleItem = ({ item }: { item: Product }) => {
         <div className="text-center px-4 py-4">
           {/* Spice level and category */}
           <div className="flex items-center justify-center gap-3 mb-2">
-            {(item as any).spiceLevel && getSpiceIndicator((item as any).spiceLevel)}
+            {item.spiceLevel && getSpiceIndicator(item.spiceLevel)}
             <span className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full">
-              {(item as any).category || 'curry'}
+              {item.category || 'curry'}
             </span>
           </div>
 
@@ -74,10 +74,10 @@ const SingleItem = ({ item }: { item: Product }) => {
           {/* Reviews and prep time */}
           <div className="flex items-center justify-center gap-2 text-xs text-gray-600 mb-2">
             <span>⭐ 4.5 ({item.reviews} reviews)</span>
-            {(item as any).prepTime && (
+            {item.prepTime && (
               <>
                 <span>•</span>
-                <span>⏱️ {(item as any).prepTime}</span>
+                <span>⏱️ {item.prepTime}</span>
               </>
             )}
           </div>
@@ -99,7 +99,7 @@ const SingleItem = ({ item }: { item: Product }) => {
             }}
             aria-label="button for quick view"
             id="bestOne"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-blue"
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-orange"
           >
             <svg
               className="fill-current"
@@ -128,7 +128,7 @@ const SingleItem = ({ item }: { item: Product }) => {
             onClick={() => handleAddToCart()}
             aria-label="button for add to cart"
             id="addCartOne"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-blue"
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-orange"
           >
             <svg
               className="fill-current"
@@ -165,7 +165,7 @@ const SingleItem = ({ item }: { item: Product }) => {
             }}
             aria-label="button for add to fav"
             id="addFavOne"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-blue"
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-orange"
           >
             <svg
               className="fill-current"

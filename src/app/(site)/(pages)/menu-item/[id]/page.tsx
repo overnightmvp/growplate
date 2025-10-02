@@ -13,15 +13,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (!menuItem) {
     return {
-      title: "Menu Item Not Found | Bombay Delights",
+      title: "Menu Item Not Found | Spice Garden",
       description: "The requested menu item could not be found."
     };
   }
 
   return {
-    title: `${menuItem.title} | Bombay Delights - Indian Food Court Melbourne`,
-    description: `Order ${menuItem.title} online. ${(menuItem as any).description || 'Authentic Indian cuisine'} at Stall 23, Southern Cross Food Court. Ready in ${(menuItem as any).prepTime || '8-12 minutes'}.`,
-    keywords: `${menuItem.title}, Indian food, ${(menuItem as any).category}, Melbourne food court, takeaway`,
+    title: `${menuItem.title} | Spice Garden - Authentic Indian Restaurant`,
+    description: `Order ${menuItem.title} online. ${menuItem.description || 'Authentic Indian cuisine'} at Spice Garden. Ready in ${menuItem.prepTime || '8-12 minutes'}.`,
+    keywords: `${menuItem.title}, Indian food, ${menuItem.category}, authentic Indian cuisine, takeaway`,
   };
 }
 

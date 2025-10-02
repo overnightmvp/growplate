@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-NextMerce is a Next.js eCommerce template built with React 19, TypeScript, and Tailwind CSS. This codebase includes both the free template structure and Prisma database integration for full eCommerce functionality.
+Spice Garden is a Next.js restaurant website template built with React 19, TypeScript, and Tailwind CSS. This codebase includes restaurant-specific features like menu management, online ordering, and customer management with Prisma database integration.
 
 ## Build Commands
 

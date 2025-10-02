@@ -26,7 +26,7 @@ const BestSeller = () => {
                 width={17}
                 height={17}
               />
-              🍛 Chef's Specials
+              🍛 Chef&apos;s Specials
             </span>
             <h2 className="font-semibold text-xl xl:text-heading-5 text-orange-900">
               Most Loved Indian Dishes

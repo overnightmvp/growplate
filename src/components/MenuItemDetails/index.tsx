@@ -62,7 +62,7 @@ const MenuItemDetails = ({ id }: MenuItemDetailsProps) => {
     );
   };
 
-  const spiceInfo = getSpiceIndicator((menuItem as any).spiceLevel || '');
+  const spiceInfo = getSpiceIndicator(menuItem.spiceLevel || '');
 
   return (
     <>
@@ -83,7 +83,7 @@ const MenuItemDetails = ({ id }: MenuItemDetailsProps) => {
                   </div>
                   <div className="text-center">
                     <span className="text-xs bg-orange-100 text-orange-600 px-3 py-1 rounded-full">
-                      {(menuItem as any).category || 'Indian Cuisine'}
+                      {menuItem.category || 'Indian Cuisine'}
                     </span>
                   </div>
                 </div>
@@ -99,7 +99,7 @@ const MenuItemDetails = ({ id }: MenuItemDetailsProps) => {
                 
                 {/* Description */}
                 <p className="text-gray-600 mb-4">
-                  {(menuItem as any).description || 'Authentic Indian cuisine prepared with traditional spices and fresh ingredients.'}
+                  {menuItem.description || 'Authentic Indian cuisine prepared with traditional spices and fresh ingredients.'}
                 </p>
 
                 {/* Reviews and Prep Time */}
@@ -108,10 +108,10 @@ const MenuItemDetails = ({ id }: MenuItemDetailsProps) => {
                     <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
                     <span className="text-sm text-gray-600">4.5 ({menuItem.reviews} reviews)</span>
                   </div>
-                  {(menuItem as any).prepTime && (
+                  {menuItem.prepTime && (
                     <div className="flex items-center gap-2">
                       <span>⏱️</span>
-                      <span className="text-sm text-gray-600">{(menuItem as any).prepTime}</span>
+                      <span className="text-sm text-gray-600">{menuItem.prepTime}</span>
                     </div>
                   )}
                 </div>
@@ -181,7 +181,7 @@ const MenuItemDetails = ({ id }: MenuItemDetailsProps) => {
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                   <h4 className="font-medium text-blue-800 mb-2">📍 Pickup Information</h4>
                   <ul className="text-sm text-blue-700 space-y-1">
-                    <li>🕐 Ready in {(menuItem as any).prepTime || '8-12 minutes'}</li>
+                    <li>🕐 Ready in {menuItem.prepTime || '8-12 minutes'}</li>
                     <li>📍 Stall 23, Southern Cross Food Court</li>
                     <li>💳 Cash, Card & PayWave accepted</li>
                   </ul>
@@ -222,8 +222,8 @@ const MenuItemDetails = ({ id }: MenuItemDetailsProps) => {
                   <div>
                     <span className="text-gray-600">Dietary:</span>
                     <span className="font-medium ml-2">
-                      {(menuItem as any).category === 'curries' && menuItem.title.toLowerCase().includes('chicken') ? 'Contains Meat' : 
-                       (menuItem as any).category === 'curries' && menuItem.title.toLowerCase().includes('paneer') ? 'Vegetarian' : 
+                      {menuItem.category === 'curries' && menuItem.title.toLowerCase().includes('chicken') ? 'Contains Meat' : 
+                       menuItem.category === 'curries' && menuItem.title.toLowerCase().includes('paneer') ? 'Vegetarian' : 
                        'Traditional Recipe'}
                     </span>
                   </div>

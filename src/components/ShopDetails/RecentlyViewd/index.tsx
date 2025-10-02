@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import shopData from "@/components/Shop/shopData";
+import indianMenuData from "@/data/indianMenuData";
 import ProductItem from "@/components/Common/ProductItem";
 import Image from "next/image";
 import Link from "next/link";
@@ -89,7 +89,7 @@ const RecentlyViewdItems = () => {
             spaceBetween={20}
             className="justify-between"
           >
-            {shopData.map((item, key) => (
+            {indianMenuData.slice(0, 6).map((item, key) => (
               <SwiperSlide key={key}>
                 <ProductItem item={item} />
               </SwiperSlide>

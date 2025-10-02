@@ -3,13 +3,13 @@ import { Menu } from "@/types/Menu";
 export const menuData: Menu[] = [
   {
     id: 1,
-    title: "Popular",
+    title: "Home",
     newTab: false,
     path: "/",
   },
   {
     id: 2,
-    title: "Shop",
+    title: "Menu",
     newTab: false,
     path: "/shop-with-sidebar",
   },
@@ -21,25 +21,25 @@ export const menuData: Menu[] = [
   },
   {
     id: 6,
-    title: "pages",
+    title: "Services",
     newTab: false,
     path: "/",
     submenu: [
       {
         id: 61,
-        title: "Shop With Sidebar",
+        title: "Dine In",
         newTab: false,
         path: "/shop-with-sidebar",
       },
       {
         id: 62,
-        title: "Shop Without Sidebar",
+        title: "Takeaway",
         newTab: false,
         path: "/shop-without-sidebar",
       },
       {
         id: 64,
-        title: "Checkout",
+        title: "Order Online",
         newTab: false,
         path: "/checkout",
       },
@@ -51,7 +51,7 @@ export const menuData: Menu[] = [
       },
       {
         id: 66,
-        title: "Wishlist",
+        title: "Favorites",
         newTab: false,
         path: "/wishlist",
       },
@@ -87,7 +87,7 @@ export const menuData: Menu[] = [
       },
       {
         id: 63,
-        title: "Mail Success",
+        title: "Order Success",
         newTab: false,
         path: "/mail-success",
       },
@@ -95,31 +95,31 @@ export const menuData: Menu[] = [
   },
   {
     id: 7,
-    title: "blogs",
+    title: "About",
     newTab: false,
     path: "/",
     submenu: [
       {
         id: 71,
-        title: "Blog Grid with sidebar",
+        title: "Our Story",
         newTab: false,
         path: "/blogs/blog-grid-with-sidebar",
       },
       {
         id: 72,
-        title: "Blog Grid",
+        title: "Chef's Special",
         newTab: false,
         path: "/blogs/blog-grid",
       },
       {
         id: 73,
-        title: "Blog details with sidebar",
+        title: "Reviews",
         newTab: false,
         path: "/blogs/blog-details-with-sidebar",
       },
       {
         id: 74,
-        title: "Blog details",
+        title: "Events",
         newTab: false,
         path: "/blogs/blog-details",
       },

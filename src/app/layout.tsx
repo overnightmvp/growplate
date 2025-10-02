@@ -15,11 +15,8 @@ import PreviewSliderModal from "@/components/Common/PreviewSlider";
 import ScrollToTop from "@/components/Common/ScrollToTop";
 
 export const metadata: Metadata = {
-  title: 'NextMerce - Next.js eCommerce Template',
-  description: 'Free Next.js eCommerce template with Redux, Tailwind CSS, and Prisma',
-  icons: {
-    icon: '/favicon.ico',
-  },
+  title: 'Spice Garden - Authentic Indian Restaurant',
+  description: 'Experience authentic Indian cuisine with traditional flavors and modern presentation at Spice Garden',
 }
 
 export default function RootLayout({

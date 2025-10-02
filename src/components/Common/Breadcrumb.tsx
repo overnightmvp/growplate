@@ -1,7 +1,12 @@
 import Link from "next/link";
 import React from "react";
 
-const Breadcrumb = ({ title, pages }) => {
+interface BreadcrumbProps {
+  title: string;
+  pages: (string | { title: string; href?: string })[];
+}
+
+const Breadcrumb = ({ title, pages }: BreadcrumbProps) => {
   return (
     <div className="overflow-hidden shadow-breadcrumb pt-[209px] sm:pt-[155px] lg:pt-[95px] xl:pt-[165px]">
       <div className="border-t border-gray-3">
@@ -12,14 +17,20 @@ const Breadcrumb = ({ title, pages }) => {
             </h1>
 
             <ul className="flex items-center gap-2">
-              <li className="text-custom-sm hover:text-blue">
+              <li className="text-custom-sm hover:text-orange">
                 <Link href="/">Home /</Link>
               </li>
 
               {pages.length > 0 &&
                 pages.map((page, key) => (
-                  <li className="text-custom-sm last:text-blue capitalize" key={key}>
-                    {page} 
+                  <li className="text-custom-sm last:text-orange capitalize" key={key}>
+                    {typeof page === 'string' ? page : (
+                      page.href ? (
+                        <Link href={page.href}>{page.title}</Link>
+                      ) : (
+                        page.title
+                      )
+                    )}
                   </li>
                 ))}
             </ul>
