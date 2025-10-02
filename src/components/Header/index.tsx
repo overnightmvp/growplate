@@ -72,14 +72,16 @@ const Header = () => {
               />
             </Link>
 
-            <div className="max-w-[475px] w-full">
+            <div className="w-full max-w-[475px]">
               <form>
-                <div className="flex items-center">
-                  <CustomSelect options={options} />
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                  <div className="w-full sm:w-auto">
+                    <CustomSelect options={options} />
+                  </div>
 
-                  <div className="relative max-w-[333px] sm:min-w-[333px] w-full">
+                  <div className="relative flex-1 sm:max-w-[333px]">
                     {/* <!-- divider --> */}
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 inline-block w-px h-5.5 bg-gray-4"></span>
+                    <span className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 inline-block w-px h-5.5 bg-gray-300"></span>
                     <input
                       onChange={(e) => setSearchQuery(e.target.value)}
                       value={searchQuery}
@@ -88,13 +90,14 @@ const Header = () => {
                       id="search"
                       placeholder="Search for dishes..."
                       autoComplete="off"
-                      className="custom-search w-full rounded-r-[5px] bg-gray-1 !border-l-0 border border-gray-3 py-2.5 pl-4 pr-10 outline-none ease-in duration-200"
+                      className="custom-search w-full rounded-[5px] sm:rounded-r-[5px] sm:rounded-l-none bg-gray-100 border border-gray-300 sm:!border-l-0 py-2.5 pl-4 pr-10 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
                     />
 
                     <button
+                      type="submit"
                       id="search-btn"
-                      aria-label="Search"
-                      className="flex items-center justify-center absolute right-3 top-1/2 -translate-y-1/2 ease-in duration-200 hover:text-orange"
+                      aria-label="Search for dishes"
+                      className="flex items-center justify-center absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-primary-500 transition-colors duration-200"
                     >
                       <svg
                         className="fill-current"

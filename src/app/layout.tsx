@@ -15,8 +15,8 @@ import PreviewSliderModal from "@/components/Common/PreviewSlider";
 import ScrollToTop from "@/components/Common/ScrollToTop";
 
 export const metadata: Metadata = {
-  title: 'Spice Garden - Authentic Indian Restaurant',
-  description: 'Experience authentic Indian cuisine with traditional flavors and modern presentation at Spice Garden',
+  title: 'Bombay Delights | Authentic Indian Food Court - Southern Cross Melbourne',
+  description: 'Order fresh Indian takeaway online. Curry, biryani, naan & more. Located at Stall 23, Southern Cross Food Court. Ready in 8-12 minutes. Lunch specials available.',
 }
 
 export default function RootLayout({

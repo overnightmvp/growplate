@@ -11,7 +11,7 @@ const config: Config = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      "euclid-circular-a": ["Euclid Circular A"],
+      "euclid-circular-a": ["Euclid Circular A", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
     },
     container: {
       center: true,
@@ -25,82 +25,76 @@ const config: Config = {
       current: "currentColor",
       transparent: "transparent",
       white: "#FFFFFF",
-      body: "#6C6F93",
-      meta: {
-        DEFAULT: "#F7F9FC",
-        2: "#495270",
-        3: "#606882",
-        4: "#8D93A5",
-        5: "#BBBEC9",
+      black: "#000000",
+      
+      // Primary brand colors for Indian restaurant
+      primary: {
+        DEFAULT: "#FF6B35", // Warm orange (main brand)
+        dark: "#E55A2B",
+        light: "#FF8A5C",
+        50: "#FFF7F5",
+        100: "#FFE6D9",
+        500: "#FF6B35",
+        600: "#E55A2B",
+        900: "#B8441F",
       },
+      
+      // Secondary brand colors
+      secondary: {
+        DEFAULT: "#D97706", // Deep saffron
+        light: "#F59E0B",
+        dark: "#92400E",
+      },
+      
+      // Neutral colors
+      gray: {
+        50: "#F9FAFB",
+        100: "#F3F4F6", 
+        200: "#E5E7EB",
+        300: "#D1D5DB",
+        400: "#9CA3AF",
+        500: "#6B7280",
+        600: "#4B5563",
+        700: "#374151",
+        800: "#1F2937",
+        900: "#111827",
+      },
+      
+      // Semantic colors
       dark: {
         DEFAULT: "#1C274C",
         2: "#495270",
-        3: "#606882",
+        3: "#606882", 
         4: "#8D93A5",
-        5: "#BBBEC9",
-      },
-      gray: {
-        DEFAULT: "#F3F5F6",
-        1: "#F9FAFB",
-        2: "#F3F4F6",
-        3: "#E5E7EB",
-        4: "#D1D5DB",
-        5: "#9CA3AF",
-        6: "#6B7280",
-        7: "#374151",
-      },
-      blue: {
-        DEFAULT: "#3C50E0",
-        dark: "#1C3FB7",
-        light: "#5475E5",
-        "light-2": "#8099EC",
-        "light-3": "#ADBCF2",
-        "light-4": "#C3CEF6",
-        "light-5": "#E1E8FF",
       },
       red: {
-        DEFAULT: "#F23030",
-        dark: "#E10E0E",
-        light: "#F56060",
-        "light-2": "#F89090",
-        "light-3": "#FBC0C0",
-        "light-4": "#FDD8D8",
-        "light-5": "#FEEBEB",
-        "light-6": "#FEF3F3",
+        DEFAULT: "#DC2626",
+        50: "#FEF2F2",
+        500: "#DC2626",
+        600: "#B91C1C",
       },
       green: {
-        DEFAULT: "#22AD5C",
-        dark: "#1A8245",
-        light: "#2CD673",
-        "light-2": "#57DE8F",
-        "light-3": "#82E6AC",
-        "light-4": "#ACEFC8",
-        "light-5": "#C2F3D6",
-        "light-6": "#DAF8E6",
+        DEFAULT: "#16A34A",
+        50: "#F0FDF4",
+        500: "#16A34A", 
+        600: "#15803D",
       },
-      yellow: {
-        DEFAULT: "#FBBF24",
-        dark: "#F59E0B",
-        "dark-2": "#D97706",
-        light: "#FCD34D",
-        "light-1": "#FDE68A",
-        "light-2": "#FEF3C7",
-        "light-4": "#FFFBEB",
-      },
-      teal: {
-        DEFAULT: "#02AAA4",
-        dark: "#06A09B",
-      },
+      
+      // Legacy aliases for existing components
       orange: {
         DEFAULT: "#FF6B35",
         dark: "#E55A2B",
         light: "#FF8A5C",
-        "light-2": "#FFA882",
-        "light-3": "#FFC7A9",
-        "light-4": "#FFD6C4",
-        "light-5": "#FFE6D9",
+        50: "#FFF7F5",
+        100: "#FFE6D9",
+        200: "#FFC7A9",
+        300: "#FFA882",
+        400: "#FF8A5C",
+        500: "#FF6B35",
+        600: "#E55A2B",
       },
+      body: "#6C6F93",
+      meta: "#F7F9FC",
     },
     screens: {
       xsm: "375px",
