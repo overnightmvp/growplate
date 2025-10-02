@@ -27,29 +27,29 @@ const HeroCarousal = () => {
         <div className="flex items-center pt-6 sm:pt-0 flex-col-reverse sm:flex-row">
           <div className="max-w-[394px] py-10 sm:py-15 lg:py-24.5 pl-4 sm:pl-7.5 lg:pl-12.5">
             <div className="flex items-center gap-4 mb-7.5 sm:mb-10">
-              <span className="block font-semibold text-heading-3 sm:text-heading-1 text-blue">
-                30%
+              <span className="block font-semibold text-heading-3 sm:text-heading-1 text-orange-600">
+                🔥
               </span>
-              <span className="block text-dark text-sm sm:text-custom-1 sm:leading-[24px]">
-                Sale
+              <span className="block text-orange-800 text-sm sm:text-custom-1 sm:leading-[24px] font-medium">
+                Fresh
                 <br />
-                Off
+                Daily
               </span>
             </div>
 
-            <h1 className="font-semibold text-dark text-xl sm:text-3xl mb-3">
-              <a href="#">True Wireless Noise Cancelling Headphone</a>
+            <h1 className="font-semibold text-orange-900 text-xl sm:text-3xl mb-3">
+              <a href="#">Authentic Indian Flavors in Melbourne</a>
             </h1>
 
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at ipsum at risus euismod lobortis in
+            <p className="text-orange-700">
+            Experience the vibrant taste of India at Southern Cross Food Court. Traditional recipes, fresh ingredients, made with love.
             </p>
 
             <a
-              href="#"
-              className="inline-flex font-medium text-white text-custom-sm rounded-md bg-dark py-3 px-9 ease-out duration-200 hover:bg-blue mt-10"
+              href="#menu"
+              className="inline-flex font-medium text-orange-100 text-custom-sm rounded-md bg-orange-600 py-3 px-9 ease-out duration-200 hover:bg-orange-700 mt-10"
             >
-              Shop Now
+              Explore Menu
             </a>
           </div>
 
@@ -68,30 +68,29 @@ const HeroCarousal = () => {
         <div className="flex items-center pt-6 sm:pt-0 flex-col-reverse sm:flex-row">
           <div className="max-w-[394px] py-10 sm:py-15 lg:py-26 pl-4 sm:pl-7.5 lg:pl-12.5">
             <div className="flex items-center gap-4 mb-7.5 sm:mb-10">
-              <span className="block font-semibold text-heading-3 sm:text-heading-1 text-blue">
-                30%
+              <span className="block font-semibold text-heading-3 sm:text-heading-1 text-red-600">
+                🌶️
               </span>
-              <span className="block text-dark text-sm sm:text-custom-1 sm:leading-[24px]">
-                Sale
+              <span className="block text-red-800 text-sm sm:text-custom-1 sm:leading-[24px] font-medium">
+                Spice
                 <br />
-                Off
+                Master
               </span>
             </div>
 
-            <h1 className="font-semibold text-dark text-xl sm:text-3xl mb-3">
-              <a href="#">True Wireless Noise Cancelling Headphone</a>
+            <h1 className="font-semibold text-red-900 text-xl sm:text-3xl mb-3">
+              <a href="#">Taste the Real India Every Day</a>
             </h1>
 
-            <p>
-              Lorem ipsum dolor sit, consectetur elit nunc suscipit non ipsum
-              nec suscipit.
+            <p className="text-red-700">
+              From mild to fiery hot - discover flavors that transport you straight to the heart of India. Made fresh every morning.
             </p>
 
             <a
-              href="#"
-              className="inline-flex font-medium text-white text-custom-sm rounded-md bg-dark py-3 px-9 ease-out duration-200 hover:bg-blue mt-10"
+              href="#menu"
+              className="inline-flex font-medium text-red-100 text-custom-sm rounded-md bg-red-600 py-3 px-9 ease-out duration-200 hover:bg-red-700 mt-10"
             >
-              Shop Now
+              Order Today
             </a>
           </div>
 

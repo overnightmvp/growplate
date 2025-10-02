@@ -19,28 +19,28 @@ const BestSeller = () => {
         {/* Section title */}
         <div className="mb-10 flex items-center justify-between">
           <div>
-            <span className="flex items-center gap-2.5 font-medium text-dark mb-1.5">
+            <span className="flex items-center gap-2.5 font-medium text-orange-800 mb-1.5">
               <Image
                 src="/images/icons/icon-07.svg"
                 alt="icon"
                 width={17}
                 height={17}
               />
-              Most Popular
+              🍛 Chef's Specials
             </span>
-            <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-              Customer Favorites
+            <h2 className="font-semibold text-xl xl:text-heading-5 text-orange-900">
+              Most Loved Indian Dishes
             </h2>
           </div>
           
           {/* Navigation buttons */}
           <div className="flex items-center gap-2">
-            <button className="swiper-button-prev-custom w-10 h-10 rounded-full bg-white border border-gray-3 flex items-center justify-center hover:bg-blue hover:text-white hover:border-blue transition-all">
+            <button className="swiper-button-prev-custom w-10 h-10 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center hover:bg-orange-600 hover:text-orange-100 hover:border-orange-600 transition-all">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
-            <button className="swiper-button-next-custom w-10 h-10 rounded-full bg-white border border-gray-3 flex items-center justify-center hover:bg-blue hover:text-white hover:border-blue transition-all">
+            <button className="swiper-button-next-custom w-10 h-10 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center hover:bg-orange-600 hover:text-orange-100 hover:border-orange-600 transition-all">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

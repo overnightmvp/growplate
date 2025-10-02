@@ -30,17 +30,17 @@ const Testimonials = () => {
             {/* <!-- section title --> */}
             <div className="mb-10 flex items-center justify-between">
               <div>
-                <span className="flex items-center gap-2.5 font-medium text-dark mb-1.5">
+                <span className="flex items-center gap-2.5 font-medium text-orange-800 mb-1.5">
                   <Image
                     src="/images/icons/icon-08.svg"
                     alt="icon"
                     width={17}
                     height={17}
                   />
-                  Testimonials
+                  ⭐ Real Reviews
                 </span>
-                <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-                  User Feedbacks
+                <h2 className="font-semibold text-xl xl:text-heading-5 text-orange-900">
+                  What Our Food Lovers Say
                 </h2>
               </div>
 
