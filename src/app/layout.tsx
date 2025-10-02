@@ -14,6 +14,14 @@ import PreviewSliderModal from "@/components/Common/PreviewSlider";
 
 import ScrollToTop from "@/components/Common/ScrollToTop";
 
+export const metadata: Metadata = {
+  title: 'NextMerce - Next.js eCommerce Template',
+  description: 'Free Next.js eCommerce template with Redux, Tailwind CSS, and Prisma',
+  icons: {
+    icon: '/favicon.ico',
+  },
+}
+
 export default function RootLayout({
   children,
 }: {
